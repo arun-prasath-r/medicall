@@ -33,12 +33,16 @@ api.interceptors.response.use(
       localStorage.removeItem('medicall_token');
       localStorage.removeItem('medicall_user');
       // If not already on login or landing page, optionally redirect
+      const basename =
+        (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.BASE_URL) || '/';
+      const cleanBase = basename.endsWith('/') ? basename.slice(0, -1) : basename;
       if (
         !window.location.pathname.includes('/login') &&
         !window.location.pathname.includes('/register') &&
-        window.location.pathname !== '/'
+        window.location.pathname !== '/' &&
+        window.location.pathname !== basename
       ) {
-        window.location.href = '/login?expired=true';
+        window.location.href = `${cleanBase}/login?expired=true`;
       }
     }
     return Promise.reject(error);

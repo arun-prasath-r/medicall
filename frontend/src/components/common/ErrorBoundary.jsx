@@ -103,7 +103,7 @@ export class ErrorBoundary extends React.Component {
                 <span>Reload Page</span>
               </button>
               <a
-                href="/"
+                href={import.meta.env.BASE_URL || '/'}
                 className="btn btn-secondary"
                 style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}
               >

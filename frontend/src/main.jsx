@@ -8,10 +8,12 @@ import App from './App';
 import './styles/variables.css';
 import './styles/index.css';
 
+const basename = import.meta.env.BASE_URL || '/';
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ErrorBoundary>
-      <BrowserRouter>
+      <BrowserRouter basename={basename}>
         <AuthProvider>
           <App />
         </AuthProvider>
