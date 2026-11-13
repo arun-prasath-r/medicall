@@ -1,0 +1,81 @@
+:root {
+  /* Brand Palette - Forest, Sage & Ivory */
+  --primary-900: #0d211b;
+  --primary-800: #143027;
+  --primary-700: #1a3d32; /* Core brand forest green */
+  --primary-600: #255546;
+  --primary-500: #326e5b;
+  --primary-400: #498c74;
+  --primary-300: #71ab95;
+  --primary-200: #a2ccbc;
+  --primary-100: #d6e8e0;
+  --primary-50:  #f0f6f3;
+
+  --sage-500: #628a79;
+  --sage-400: #7da393;
+  --sage-300: #9cbcae;
+  --sage-200: #c1d8ce;
+  --sage-100: #e3ede8;
+  --sage-50:  #f4f8f6;
+
+  /* Surfaces & Ivory */
+  --bg-app: #fbfbf9;      /* Warm premium ivory canvas */
+  --bg-surface: #ffffff;  /* Card surface */
+  --bg-surface-elevated: #ffffff;
+  --bg-subtle: #f4f6f3;
+  --bg-muted: #ebf0ec;
+
+  /* Typography */
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+
+  --text-main: #14201c;
+  --text-body: #374742;
+  --text-muted: #64756f;
+  --text-subtle: #8a9c96;
+  --text-inverse: #ffffff;
+
+  /* Borders & Dividers */
+  --border-light: #e6ede9;
+  --border-medium: #cbd8d1;
+  --border-focus: #1a3d32;
+
+  /* Status Colors */
+  --success: #15803d;
+  --success-bg: #f0fdf4;
+  --success-border: #bbf7d0;
+
+  --warning: #b45309;
+  --warning-bg: #fffbeb;
+  --warning-border: #fde68a;
+
+  --danger: #b91c1c;
+  --danger-bg: #fef2f2;
+  --danger-border: #fecaca;
+
+  --info: #1d4ed8;
+  --info-bg: #eff6ff;
+  --info-border: #bfdbfe;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(20, 48, 39, 0.04);
+  --shadow-sm: 0 2px 6px rgba(20, 48, 39, 0.05);
+  --shadow-md: 0 6px 20px -2px rgba(20, 48, 39, 0.07), 0 2px 6px -1px rgba(20, 48, 39, 0.03);
+  --shadow-lg: 0 16px 36px -4px rgba(20, 48, 39, 0.1), 0 6px 14px -2px rgba(20, 48, 39, 0.04);
+  --shadow-xl: 0 24px 48px -8px rgba(20, 48, 39, 0.14);
+
+  /* Radii */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-full: 9999px;
+
+  /* Transition Speeds */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 220ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 350ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
