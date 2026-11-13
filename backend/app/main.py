@@ -28,6 +28,13 @@ async def lifespan(app: FastAPI):
     else:
         logger.info("Medicall API initialized in '%s' mode.", settings.ENVIRONMENT)
 
+    # Automatic initial clinical directory check (seeds verified doctors & slots if empty)
+    try:
+        from app.db.seed import seed_database
+        seed_database()
+    except Exception as exc:
+        logger.warning("Automatic seed check: %s", exc)
+
     yield
 
 
