@@ -15,6 +15,22 @@ class Settings(BaseSettings):
     # Database
     DATABASE_URL: str = "postgresql+psycopg://medicall_user:medicall_password@localhost:5432/medicall_db"
 
+    @field_validator("DATABASE_URL", mode="before")
+    @classmethod
+    def normalize_database_url(cls, v: str) -> str:
+        """
+        Normalizes cloud provider connection strings (e.g. Render, Supabase, Neon)
+        to use the psycopg v3 dialect expected by SQLAlchemy.
+        """
+        if isinstance(v, str):
+            clean_v = v.strip()
+            if clean_v.startswith("postgres://"):
+                return "postgresql+psycopg://" + clean_v[len("postgres://"):]
+            if clean_v.startswith("postgresql://") and not clean_v.startswith("postgresql+"):
+                return "postgresql+psycopg://" + clean_v[len("postgresql://"):]
+            return clean_v
+        return v
+
     # Security & JWT
     JWT_SECRET_KEY: str = "default-dev-secret-key-must-be-replaced-in-production-env"
     JWT_ALGORITHM: str = "HS256"

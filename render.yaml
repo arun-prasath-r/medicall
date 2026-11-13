@@ -1,0 +1,44 @@
+databases:
+  - name: medicall-postgres
+    databaseName: medicall_db
+    user: medicall_user
+    plan: free
+
+services:
+  - type: web
+    name: medicall-backend
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "chmod +x start.sh && ./start.sh"
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: medicall-postgres
+          property: connectionString
+      - key: ENVIRONMENT
+        value: production
+      - key: DEBUG
+        value: "false"
+      - key: JWT_SECRET_KEY
+        generateValue: true
+      - key: JWT_ALGORITHM
+        value: HS256
+      - key: ACCESS_TOKEN_EXPIRE_MINUTES
+        value: "60"
+      - key: CORS_ORIGINS
+        value: '["https://arun-prasath-r.github.io", "http://localhost:5173", "http://127.0.0.1:5173"]'
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: "gemini-3.5-flash"
+      - key: GEMINI_FALLBACK_MODEL
+        value: "gemini-3.5-flash-lite"
+      - key: CLINIC_TIMEZONE
+        value: "Asia/Kolkata"
+      - key: DEFAULT_COUNTRY_CODE
+        value: "IN"
+      - key: EMERGENCY_PHONE_NUMBER
+        value: "112"
